@@ -1,0 +1,25 @@
+{
+  "name": "impress.js",
+  "version": "1.0.0",
+  "description": "impress.js is a server side dialog creation and template language",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khrome83/impressjs.git"
+  },
+  "keywords": [
+    "templating",
+    "dialog",
+    "dom",
+    "js"
+  ],
+  "author": "Zane C. Milakovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khrome83/impressjs/issues"
+  },
+  "homepage": "https://github.com/khrome83/impressjs#readme"
+}
