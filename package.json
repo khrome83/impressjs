@@ -25,5 +25,15 @@
   "dependencies": {
     "parse5": "^1.5.0",
     "parse5-utils": "^1.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-plumber": "^1.0.1",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "plumber": "^0.4.8"
   }
 }
