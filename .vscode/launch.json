@@ -1,0 +1,20 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch ./lib/index.js",
+			"type": "node",
+			"program": "./lib/index.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": ".",
+			"runtimeExecutable": null,
+			"runtimeArgs": ["--nolazy"],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"sourceMaps": false,
+			"outDir": null
+		}
+	]
+}
