@@ -73,5 +73,35 @@ describe('utility', function() {
       utility.merge(obj1, obj2).foo.should.equal('baz');
     });
     
+    it('should alwasy return {} if both args are not valid objects', function() {
+      utility.merge(null, "bob").should.deep.equal({});
+    });
+    
+    it('should alwasy return back obj1 if obj2 is not a valid type {}', function() {
+      var obj = {
+            foo: 'foo',
+            bar: 'bar'
+          };
+     
+      utility.merge(obj, 'foo').should.deep.equal(obj);
+      utility.merge(obj, [1, 2, 3]).should.deep.equal(obj);
+      utility.merge(obj, undefined).should.deep.equal(obj);
+      utility.merge(obj, null).should.deep.equal(obj);
+      utility.merge(obj, function (e) {return true;}).should.deep.equal(obj);
+    });
+    
+    it('should alwasy return back obj2 if obj1 is not a valid type {}', function() {
+      var obj = {
+            foo: 'foo',
+            bar: 'bar'
+          };
+      
+      utility.merge('foo', obj).should.deep.equal(obj);
+      utility.merge([1, 2, 3], obj).should.deep.equal(obj);
+      utility.merge(undefined, obj).should.deep.equal(obj);
+      utility.merge(null, obj).should.deep.equal(obj);
+      utility.merge(function (e) {return true;}, obj).should.deep.equal(obj);
+    });
+    
   });
 });
