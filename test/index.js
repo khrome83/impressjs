@@ -3,8 +3,7 @@
 // Require Modules
 var chai = require('chai'),
   should = chai.should(),
-  impress = require('../lib/index'),
-  compile = impress.compile,
+  Impress = require('../lib/index'),
   utility = require('../lib/utility');
 
 // Chai Settings
@@ -16,11 +15,20 @@ describe('impress', function() {
   describe('#compile()', function () {
 
     it('tests for value and dispays contents', function () {
-      var html = "<p></p>",
-        options = {},
+      var html = '<p></p>',
+        options = { document: '<a></a>' },
         reporter = null;
   
-      compile(html, options, reporter).should.equal('<html></html>');
+      var impress = Impress(options, reporter);
+      impress.compile(html).should.equal('<html></html>');
+    });
+    
+    it('should hide block of content is data-imp-test is false', function() {
+      
+    });
+
+    it('should show block of content is data-imp-test is true', function() {
+      
     });
 
   });  
