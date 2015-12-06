@@ -38,11 +38,11 @@ describe('impress', function() {
   
   describe('#compile()', function () {
 
-    it('should hide block of content is data-imp-test is false', function() {
+    it('should do nothing if data-imp-test is true', function() {
       
     });
 
-    it('should do nothing if data-imp-test is true', function() {
+    it('should remove block of content is data-imp-test is false', function() {
       
     });
 
