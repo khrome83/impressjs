@@ -38,15 +38,29 @@ describe('impress', function() {
     });
 
     describe('with arguments passed in', function() {
+      var options = {
+          prefix: 'data-i-'
+        },
+        reporter = function Reporter() {},
+        plugins = ['test'];
+      
+      
+      var impress = new Impress(options, reporter, plugins);
   
       it('should override default options with any new options passed', function() {
-          var imp3 = new Impress();
-          imp3.should.have.deep.property('options');     
+          impress.should.have.property('options');  
+          impress.options.should.have.property('prefix');
+          impress.options.prefix.should.equal('data-i-');   
       });
       
       it('should accept argument for reporter', function() {
-          var imp4 = new Impress();
-          imp4.should.have.deep.property('options');     
+          impress.should.have.deep.property('reporter');
+          should.exist(impress.reporter);     
+      });
+      
+      it('should return manifest with only plugins specified', function() {
+          impress.should.have.property('manifest');
+          impress.manifest.should.have.all.keys(['data-i-test']);
       });
         
     });
