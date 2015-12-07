@@ -14,25 +14,43 @@ describe('impress', function() {
   
   describe('new Impress()', function() {
     
-    it('should return a instance of type Impress()', function() {
-        var imp1 = new Impress();
-        imp1.should.be.an.instanceof(Impress);
-    });
+    describe('with no arguments passed in', function() {
+      var impress = new Impress();
+      
+      it('should return a instance of type Impress()', function() {
+          impress.should.be.an.instanceof(Impress);
+      });
+      
+      it('should return default options', function() {
+          impress.should.have.property('options');
+      });
+      
+      it('should contain not contaian a reporter', function() {
+          impress.should.have.property('reporter');
+          should.not.exist(impress.reporter);
+      });        
     
-    it('should return default options if no options are passed in', function() {
-        var imp2 = new Impress();
-        imp2.should.have.deep.property('options');
-    });
+      it('should return manifest with default actions', function() {
+          impress.should.have.property('manifest');
+          impress.manifest.should.contain.all.keys(['data-imp-test', 'data-imp-list']);
+      });
     
-    it('should override default options with any new options passed', function() {
-         var imp3 = new Impress();
-        imp3.should.have.deep.property('options');     
     });
-    
-    it('should accept argument for reporter', function() {
-         var imp4 = new Impress();
-        imp4.should.have.deep.property('options');     
+
+    describe('with arguments passed in', function() {
+  
+      it('should override default options with any new options passed', function() {
+          var imp3 = new Impress();
+          imp3.should.have.deep.property('options');     
+      });
+      
+      it('should accept argument for reporter', function() {
+          var imp4 = new Impress();
+          imp4.should.have.deep.property('options');     
+      });
+        
     });
+
     
   });
   
