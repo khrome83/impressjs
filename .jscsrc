@@ -1,0 +1,5 @@
+{
+    "excludeFiles": ["gulpfile.js"],
+	"preset": "jquery",
+    "requireCurlyBraces": null // or false
+}
