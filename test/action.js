@@ -29,9 +29,15 @@ describe('actions', function () {
     });
 
     it('should include external plugins if name is specified', function () {
+      // Need to Stub this Out!
+      
       //var manifest = actions.createManifest(['list', 'chai'], 'data-imp-');
       //manifest.should.be.a('object');
       //manifest.should.have.all.keys(['data-imp-list', 'data-imp-chai']);
+    });
+
+    it('should have external plugins override defaults if using the same command property', function() {
+      // Need Library to Stub Out a Plugin
     });
 
     it('should add all actions to manifest with prefix specified', function () {
