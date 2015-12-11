@@ -3,8 +3,7 @@
 // Require Modules
 var chai = require('chai'),
     should = chai.should(),
-    Impress = require('../lib/index'),
-    actions = require('../lib/actions');
+    Impress = require('../lib/index');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
@@ -81,31 +80,4 @@ describe('impress', function () {
     });
 
   });
-});
-
-describe('actions', function () {
-
-  describe('#createManifest()', function () {
-
-    it('should include all default commands if plugins includes "defaults"', function () {
-      var manifest = actions.createManifest(['defaults'], 'data-imp-');
-      manifest.should.have.all.keys(default_actions);
-    });
-
-    it('should only included specified commands if "defaults" is not specified', function () {
-      var manifest = actions.createManifest(['list'], 'data-imp-');
-      manifest.should.have.all.keys(['data-imp-list']);
-    });
-
-    it('should include external plugins if name is specified', function () {
-
-    });
-
-    it('should add all actions to manifest with prefix specified', function () {
-      var manifest = actions.createManifest(['test'], 'data-crazy-prefix-');
-      manifest.should.have.all.keys(['data-crazy-prefix-test']);
-    });
-
-  });
-
 });
