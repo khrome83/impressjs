@@ -4,9 +4,9 @@
   "description": "impress.js is a server side HTML based template markup that can be extended by reporters",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/jshint . --reporter=node_modules/jshint-stylish",
-    "checkStyle": "./node_modules/.bin/jscs .",
-    "pretest": "npm run-script checkStyle",
+    "lint": "./node_modules/.bin/jshint ./lib/ ./test/ gulpfile.js --reporter=node_modules/jshint-stylish",
+    "checkStyle": "./node_modules/.bin/jscs ./lib/ ./test/ gulpfile.js --reporter=node_modules/jscs-stylish",
+    "pretest": "npm run-script lint && npm run-script checkStyle",
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
@@ -39,6 +39,7 @@
     "gulp-jshint": "^2.0.0",
     "gulp-plumber": "^1.0.1",
     "istanbul": "^0.4.1",
+    "jscs-stylish": "^0.3.1",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
     "mocha": "^2.3.4",
