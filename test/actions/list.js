@@ -9,7 +9,7 @@ chai.config.includeStack = true; // turn on stack trace
 chai.config.truncateThreshold = 0; // disable truncating
 
 // Action List Tests
-describe('actions/.list', function () {
+describe('actions/list', function () {
 
   describe('constructor()', function () {
 
