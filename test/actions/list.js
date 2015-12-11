@@ -30,8 +30,14 @@ describe('actions/list', function () {
     });
 
     it('props required to contain "command" property', function () {
-      props.should.have.all.keys(['command']);
+      props.should.include.keys(['command']);
       props.command.should.be.a('string');
+    });
+    
+    it('props required to contain "bundle" property of "default"', function () {
+      props.should.include.keys(['bundle']);
+      props.bundle.should.be.a('string');
+      props.bundle.should.equal('default');
     });
 
   });
