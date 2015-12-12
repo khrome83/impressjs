@@ -1,8 +1,7 @@
 'use strict';
 
 // Require Modules
-var chai = require('chai'),
-    test = require('../../lib/actions/test');
+var chai = require('chai');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
@@ -11,9 +10,19 @@ chai.config.truncateThreshold = 0; // disable truncating
 // Action Test Tests
 describe('actions/test', function () {
 
+  var test;
+  
+  before(function() {
+    test = require('../../lib/actions/test');
+  });
+
   describe('constructor()', function () {
 
-    var action = test({}); 
+    var action;
+    
+    before(function() {
+      action = test({}); 
+    });
     
     it('should return processed DOM tree', function () {
       action.should.be.a('object');
@@ -23,7 +32,11 @@ describe('actions/test', function () {
 
   describe('#getProperties()', function () {
 
-    var props = test.getProperties();
+    var props;
+    
+    before(function() {
+      props = test.getProperties();
+    });
 
     it('should return props object', function () {
       props.should.be.a('object');
@@ -41,4 +54,5 @@ describe('actions/test', function () {
     });
     
   });
+
 });
