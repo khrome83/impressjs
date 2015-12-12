@@ -44,7 +44,7 @@ describe('actions', function () {
     it('should have external plugins override defaults if using the same command property', function() {
       pluginStub.getProperties = function () { return {'command': 'list'}; };
       
-      var manifest = actions.createManifest(['test', 'list', 'sample-plugin'], 'data-imp-');
+      var manifest = actions.createManifest(['sample-plugin', 'test', 'list'], 'data-imp-');
       manifest.should.be.a('object');
       manifest.should.have.all.keys(['data-imp-list', 'data-imp-test']);
     });
