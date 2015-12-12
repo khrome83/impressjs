@@ -2,7 +2,7 @@
 
 // Require Modules
 var chai = require('chai'),
-    actions = require('../lib/actions');
+    proxy = require('proxyquire');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
@@ -15,6 +15,15 @@ var default_actions = ['data-imp-test', 'data-imp-list'];
 describe('actions', function () {
 
   describe('#createManifest()', function () {
+    
+    var pluginStub, actions;
+    
+    before(function(){
+
+      pluginStub = {'@noCallThru': true};
+      actions  = proxy('../lib/actions', {'sample-plugin': pluginStub});
+
+    });
 
     it('should include all default commands if plugins includes "defaults"', function () {
       var manifest = actions.createManifest(['defaults'], 'data-imp-');
@@ -29,15 +38,19 @@ describe('actions', function () {
     });
 
     it('should include external plugins if name is specified', function () {
-      // Need to Stub this Out!
+      pluginStub.getProperties = function () { return {'command': 'plugin'}; };
       
-      //var manifest = actions.createManifest(['list', 'chai'], 'data-imp-');
-      //manifest.should.be.a('object');
-      //manifest.should.have.all.keys(['data-imp-list', 'data-imp-chai']);
+      var manifest = actions.createManifest(['list', 'sample-plugin'], 'data-imp-');
+      manifest.should.be.a('object');
+      manifest.should.have.all.keys(['data-imp-list', 'data-imp-plugin']);
     });
 
     it('should have external plugins override defaults if using the same command property', function() {
-      // Need Library to Stub Out a Plugin
+      pluginStub.getProperties = function () { return {'command': 'list'}; };
+      
+      var manifest = actions.createManifest(['test', 'list', 'sample-plugin'], 'data-imp-');
+      manifest.should.be.a('object');
+      manifest.should.have.all.keys(['data-imp-list', 'data-imp-test']);
     });
 
     it('should add all actions to manifest with prefix specified', function () {
