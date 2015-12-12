@@ -2,31 +2,27 @@
 
 // Require Modules
 var chai = require('chai'),
-    proxy = require('proxyquire');
+    proxy = require('proxyquire'),
+    rewire = require('rewire');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
 chai.config.truncateThreshold = 0; // disable truncating
 
-// Global Test Vars
-var default_actions = ['data-imp-test', 'data-imp-list'];
-
-
 describe('actions', function () {
 
   describe('#createManifest()', function () {
     
-    var pluginStub, actions;
+    var pluginStub, actions, default_actions;
     
     before(function(){
-
       pluginStub = {'@noCallThru': true};
       actions  = proxy('../lib/actions', {'sample-plugin': pluginStub});
-
+      default_actions = rewire('../lib/actions').__get__('DEFAULT_ACTIONS');
     });
 
     it('should include all default commands if plugins includes "defaults"', function () {
-      var manifest = actions.createManifest(['defaults'], 'data-imp-');
+      var manifest = actions.createManifest(['defaults'], '');
       manifest.should.be.a('object');
       manifest.should.have.all.keys(default_actions);
     });
