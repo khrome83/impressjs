@@ -2,14 +2,13 @@
 
 // Require Modules
 var chai = require('chai'),
-    should = chai.should();
+    should = chai.should(),
+    rewire = require('rewire'),
+    _ = require('lodash');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
 chai.config.truncateThreshold = 0; // disable truncating
-
-// Global Test Vars
-var default_actions = ['data-imp-test', 'data-imp-list'];
 
 // Impress.js Tests
 describe('impress', function () {
@@ -24,7 +23,16 @@ describe('impress', function () {
 
     describe('with no arguments passed in', function () {
       
+      var default_actions = [];
+      
       before(function() {
+        var prefix = rewire('../lib/index').__get__('DEFAULT_OPTIONS').prefix,
+            actions = rewire('../lib/actions').__get__('DEFAULT_ACTIONS');
+        
+        default_actions = _.map(actions, function(action) {
+          return prefix + action;
+        });
+        
         impress = new Impress();
       });
 
@@ -51,7 +59,6 @@ describe('impress', function () {
     describe('with arguments passed in', function () {
 
       before(function(){
-  
         var options = {
               prefix: 'data-i-'
             },
@@ -59,7 +66,6 @@ describe('impress', function () {
             plugins = ['test'];
 
         impress = new Impress(options, reporter, plugins);
-  
       });
 
       it('should override default options with any new options passed', function () {
