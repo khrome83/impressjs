@@ -2,8 +2,7 @@
 
 // Require Modules
 var chai = require('chai'),
-    should = chai.should(),
-    Impress = require('../lib/index');
+    should = chai.should();
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
@@ -15,10 +14,19 @@ var default_actions = ['data-imp-test', 'data-imp-list'];
 // Impress.js Tests
 describe('impress', function () {
 
+  var Impress, impress;
+
+  before(function() {
+    Impress = require('../lib/index');
+  });
+
   describe('new Impress()', function () {
 
     describe('with no arguments passed in', function () {
-      var impress = new Impress();
+      
+      before(function() {
+        impress = new Impress();
+      });
 
       it('should return a instance of type Impress()', function () {
         impress.should.be.an.instanceof(Impress);
@@ -41,13 +49,18 @@ describe('impress', function () {
     });
 
     describe('with arguments passed in', function () {
-      var options = {
-            prefix: 'data-i-'
-          },
-          reporter = function Reporter() { },
-          plugins = ['test'];
 
-      var impress = new Impress(options, reporter, plugins);
+      before(function(){
+  
+        var options = {
+              prefix: 'data-i-'
+            },
+            reporter = function Reporter() { },
+            plugins = ['test'];
+
+        impress = new Impress(options, reporter, plugins);
+  
+      });
 
       it('should override default options with any new options passed', function () {
         impress.should.have.property('options');
