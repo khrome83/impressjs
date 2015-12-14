@@ -9,7 +9,6 @@ environment:
     - nodejs_version: "5.2"
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm rm --save-dev connect-redis
   - npm install
 build: off
 test_script:
