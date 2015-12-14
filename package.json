@@ -7,7 +7,8 @@
     "pretest": "./node_modules/.bin/eslint .",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -G -u bdd -c -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "posttest": "./node_modules/.bin/istanbul check-coverage",
-    "testwin": "eslint . && mocha --recursive"
+    "testwin": "eslint . && mocha --recursive",
+    "debug": "mocha --recursive --debug-brk"
   },
   "repository": {
     "type": "git",

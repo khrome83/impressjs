@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch ./lib/index.js",
+			"name": "Launch Impress.js",
 			"type": "node",
 			"program": "./lib/index.js",
 			"stopOnEntry": false,
@@ -15,6 +15,13 @@
 			},
 			"sourceMaps": false,
 			"outDir": null
+		},
+		{
+			"name": "Debug Mocha Test",
+			"type": "node",
+			"request": "attach",
+			"port": 5858,
+			"sourceMaps": false
 		}
 	]
 }
