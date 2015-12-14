@@ -16,3 +16,4 @@ matrix:
   fast_finish: true
   allow_failures:
     - node_js: "unstable"
+after_script: "npm install coveralls@2.11.6 && cat ./coverage/lcov.info | coveralls"
