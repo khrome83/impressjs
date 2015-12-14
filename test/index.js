@@ -41,16 +41,21 @@ describe('impress', function () {
       });
 
       it('should return default options', function () {
+        impress.should.be.a('object');
         impress.should.have.property('options');
+        impress.options.should.be.a('object');
       });
 
       it('should contain not contaian a reporter', function () {
+        impress.should.be.a('object');
         impress.should.have.property('reporter');
         should.not.exist(impress.reporter);
       });
 
       it('should return manifest with default actions', function () {
+        impress.should.be.a('object');
         impress.should.have.property('manifest');
+        impress.manifest.should.be.a('object');
         impress.manifest.should.contain.all.keys(default_actions);
       });
 
@@ -69,7 +74,9 @@ describe('impress', function () {
       });
 
       it('should override default options with any new options passed', function () {
+        impress.should.be.a('object');
         impress.should.have.property('options');
+        impress.options.should.be.a('object');
         impress.options.should.have.property('prefix');
         impress.options.prefix.should.equal('data-i-');
       });
@@ -89,14 +96,24 @@ describe('impress', function () {
   });
 
   describe('#compile()', function () {
+    /*
+    var html, impress;
+    
+    before(function(){
+      html = '<ul class="fruit" id="fruit"><li class="apple" data-active="true">Apple</li><li class="pear">Pear</li><li class="blueberry">Blueberry</li></ul>';
+      impress = new Impress();
+    });
 
-    it('should do nothing if data-imp-test is true', function () {
+    it('should do nothing if data-imp-test is true', function () {  
+      var output = impress.compile(html);
 
+      
     });
 
     it('should remove block of content is data-imp-test is false', function () {
 
     });
+    */
 
   });
 });
