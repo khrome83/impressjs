@@ -1,0 +1,23 @@
+---
+engines:
+  fixme:
+    enabled: true
+  eslint:
+    enabled: true
+  nodesecurity:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+		  mass_threshold: 20
+ratings:
+  paths:
+  - lib/**
+exclude_paths:
+- node_modules/**/*
+- test/**/*
+- typings/**/*
+- coverage/**/*
+- .vscode/**/*
