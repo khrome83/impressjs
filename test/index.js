@@ -56,7 +56,9 @@ describe('impress', function () {
         impress.should.be.a('object');
         impress.should.have.property('manifest');
         impress.manifest.should.be.a('object');
-        impress.manifest.should.contain.all.keys(default_actions);
+        impress.manifest.should.have.property('attribute');
+        impress.manifest.attribute.should.be.a('object');
+        impress.manifest.attribute.should.contain.all.keys(default_actions);
       });
 
     });
@@ -88,7 +90,9 @@ describe('impress', function () {
 
       it('should return manifest with only plugins specified', function () {
         impress.should.have.property('manifest');
-        impress.manifest.should.have.all.keys(['data-i-test']);
+        impress.manifest.should.be.a('object');
+        impress.manifest.attribute.should.be.a('object');
+        impress.manifest.attribute.should.have.all.keys(['data-i-test']);
       });
 
     });

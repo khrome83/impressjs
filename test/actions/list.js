@@ -43,14 +43,21 @@ describe('actions/list', function () {
     });
 
     it('props required to contain "command" property', function () {
-      props.should.include.keys(['command']);
+      props.should.have.property('command');
       props.command.should.be.a('string');
+      props.command.should.equal('list');
     });
     
     it('props required to contain "bundle" property of "default"', function () {
-      props.should.include.keys(['bundle']);
+      props.should.have.property('bundle');
       props.bundle.should.be.a('string');
       props.bundle.should.equal('default');
+    });
+
+    it('props required to contain "type" property of "attribute"', function () {
+      props.should.have.property('type');
+      props.type.should.be.a('string');
+      props.type.should.equal('attribute');
     });
 
   });
