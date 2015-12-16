@@ -17,8 +17,10 @@ matrix:
   allow_failures:
     - node_js: "unstable"
 after_script: 
-- "npm install coveralls@2.11.6 && cat ./coverage/lcov.info | coveralls"
-- "codeclimate-test-reporter < ./coverage/lcov.info"
+- npm install coveralls@2.11.6
+- cat ./coverage/lcov.info | coveralls
+- npm install codeclimate-test-reporter
+- codeclimate-test-reporter < ./coverage/lcov.info
 addons:
   code_climate:
     repo_token: 3d98d4400141a7f4e7ae22696ea587c6430f0ceec97dd7f9d24a49763dbb3c4a
