@@ -7,7 +7,8 @@
     "pretest": "eslint .",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive -G -u bdd -c -R spec",
     "testwin": "eslint . && mocha --recursive",
-    "debug": "mocha --recursive --debug-brk"
+    "debug": "mocha --recursive --debug-brk",
+    "gendocs": "documentation ./lib/index.js -f md -o API.md"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "documentation": "^3.0.4",
     "eslint": "^1.10.3",
     "eslint-config-standard": "^4.4.0",
     "eslint-plugin-jsdoc": "^1.1.0",
