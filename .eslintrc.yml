@@ -14,7 +14,6 @@ rules:
   semi:
     - 2
     - always
-    
   jsdoc/check-param-names: 1
   jsdoc/check-redundant-params: 1
   jsdoc/check-redundant-returns: 1
