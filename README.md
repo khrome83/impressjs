@@ -8,4 +8,8 @@
 [![Code Climate](https://codeclimate.com/github/khrome83/impressjs/badges/gpa.svg)](https://codeclimate.com/github/khrome83/impressjs)
 [![Inline docs](http://inch-ci.org/github/khrome83/impressjs.svg?branch=master&style=shields)](http://inch-ci.org/github/khrome83/impressjs)
 
-Impress.JS server side dialog manaifest generation and templating
+Impress.JS server side templating. 
+
+The goal of this project, is to make a extensible version of [Sightly](https://github.com/Adobe-Marketing-Cloud/sightly-spec/blob/master/SPECIFICATION.md) for Node.js.
+
+The downside to Sightly, besides the lack of extensibility, is that it is built ontop of Java. By building this with JavaScript, we can achieve similar functionality with Node. 
