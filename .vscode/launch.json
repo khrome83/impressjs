@@ -2,7 +2,8 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch Impress.js",
+			"request": "launch",
+            "name": "Launch Impress.js",
 			"type": "node",
 			"program": "./lib/index.js",
 			"stopOnEntry": false,
