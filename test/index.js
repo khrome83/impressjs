@@ -109,7 +109,7 @@ describe('impress', function () {
     
     it('should return html string', function() {
       var output = impress.compile(html);
-
+      
       output.should.be.a('string');
     });
 
