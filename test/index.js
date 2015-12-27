@@ -100,14 +100,20 @@ describe('impress', function () {
   });
 
   describe('#compile()', function () {
-    /*
     var html, impress;
     
     before(function(){
       html = '<ul class="fruit" id="fruit"><li class="apple" data-active="true">Apple</li><li class="pear">Pear</li><li class="blueberry">Blueberry</li></ul>';
       impress = new Impress();
     });
+    
+    it('should return html string', function() {
+      var output = impress.compile(html);
 
+      output.should.be.a('string');
+    });
+
+/*
     it('should do nothing if data-imp-test is true', function () {  
       var output = impress.compile(html);
 
