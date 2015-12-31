@@ -16,12 +16,12 @@ describe('actions/test', function () {
     test = require('../../lib/actions/test');
   });
 
-  describe('constructor()', function () {
+  describe('#run()', function () {
 
     var action;
     
     before(function() {
-      action = test({}); 
+      action = test.run({}); 
     });
     
     it('should return processed DOM tree', function () {
