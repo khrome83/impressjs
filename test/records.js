@@ -2,6 +2,7 @@
 
 // Require Modules
 var chai = require('chai');
+var rewire = require('rewire');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
@@ -11,7 +12,8 @@ describe('records', function () {
   var records, location;
 
   before(function() {
-    records = require('../lib/records');
+    //records = require('../lib/records');
+    records = rewire('../lib/records');
         
     location = [];
         
@@ -28,10 +30,10 @@ describe('records', function () {
     
     it('should insert a new record for access', function() {
       var expected = [ { scope: [ 67, 100 ], key: 'sample1',  data: { bob: 45, alex: 25 } } ],
-          r = records.records;
+          results = records.__get__('records');
       
-      r.should.have.length(1);
-      r.should.eql(expected);
+      results.should.have.length(1);
+      results.should.eql(expected);
     });
 
   });
@@ -52,7 +54,7 @@ describe('records', function () {
     });
     
     it('first request should insert entry into cache map', function() {
-      var cache = records.cache[location[2].startOffset];
+      var cache = records.__get__('cache')[location[2].startOffset];
       
       cache.should.contain.all.keys(expected);
       cache.should.be.an('object');
