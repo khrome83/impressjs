@@ -1,9 +1,9 @@
 'use strict';
 
 // Require Modules
-var chai = require('chai'),
-    proxy = require('proxyquire'),
-    rewire = require('rewire');
+var chai = require('chai');
+var proxy = require('proxyquire');
+var rewire = require('rewire');
  
 // Chai Settings
 chai.config.includeStack = true; // turn on stack trace
