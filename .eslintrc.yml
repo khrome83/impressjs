@@ -14,10 +14,6 @@ rules:
   semi:
     - 2
     - always
-  valid-jsdoc:
-    - 2
-    - prefer:
-        return: 'returns'
   jsdoc/check-param-names: 1
   jsdoc/check-tag-names: 1
   jsdoc/check-types: 1
