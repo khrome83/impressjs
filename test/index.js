@@ -36,20 +36,20 @@ describe('impress', function () {
     });
 
     it('should return default options', function () {
-      var options = impress.__get__('options');
+      var options = impress.__get__('_options');
     
       options.should.be.a('object');
       options.should.eql(defaults);
     });
 
     it('should contain not contaian a reporter', function () {
-      var reporter = impress.__get__('reporter');
+      var reporter = impress.__get__('_reporter');
     
       should.not.exist(reporter);
     });
 
     it('should return manifest with default actions', function () {
-      var manifest = impress.__get__('manifest');
+      var manifest = impress.__get__('_manifest');
     
       manifest.should.be.a('object');
       manifest.should.have.property('attribute');
@@ -74,7 +74,7 @@ describe('impress', function () {
     });
 
     it('should override default options with any new options passed', function () {      
-      var options = impress.__get__('options');
+      var options = impress.__get__('_options');
     
       options.should.be.a('object');
       options.should.have.property('prefix');
@@ -82,13 +82,13 @@ describe('impress', function () {
     });
 
     it('should accept argument for reporter', function () {
-      var reporter = impress.__get__('reporter');
+      var reporter = impress.__get__('_reporter');
       
       reporter.should.eql(reporter);
     });
 
     it('should return manifest with only plugins specified', function () {
-      var manifest = impress.__get__('manifest');
+      var manifest = impress.__get__('_manifest');
     
       manifest.should.be.a('object');
       manifest.attribute.should.be.a('object');
@@ -97,6 +97,63 @@ describe('impress', function () {
 
   });
 
+  describe('#setPrefix()', function() {
+    
+    before(function() {
+      impress.setPrefix('data-sample-'); 
+    });
+    
+    it('should set the prefix inside options', function() {
+      var prefix = impress.__get__('_options').prefix;
+      
+      prefix.should.equal('data-sample-');
+    });
+   
+    it('should update manifest to use new prefix', function() {
+      var manifest = impress.__get__('_manifest');
+      
+      manifest.should.be.a('object');
+      manifest.attribute.should.be.a('object');
+      manifest.attribute.should.have.all.keys(['data-sample-test']);
+    }); 
+    
+  });
+  
+  describe('#setDirectory()', function() {
+    
+    before(function() {
+      impress.setDirectory('../data/'); 
+    });
+    
+    it('should set the directory inside options', function() {
+      var dir = impress.__get__('_options').dir;
+      
+      dir.should.equal('../data/');
+    });
+    
+  });
+  
+  describe('#reporter()', function() {
+    
+    var custom_reporter = function rep() {};
+    
+    it('should set the reporter when argument is passed into method', function() {
+      impress.reporter(custom_reporter);
+      var reporter = impress.__get__('_reporter');
+      
+      reporter.should.equal(custom_reporter);
+    });  
+    
+    it('should return last set reporter when no arguments are passed into method', function() {
+      var reporter = impress.reporter();
+      
+      console.log(reporter);
+      
+      reporter.should.equal(custom_reporter);
+    });
+    
+  });
+  
   describe('#compile()', function () {
     var html;
     
