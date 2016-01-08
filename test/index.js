@@ -147,8 +147,6 @@ describe('impress', function () {
     it('should return last set reporter when no arguments are passed into method', function() {
       var reporter = impress.reporter();
       
-      console.log(reporter);
-      
       reporter.should.equal(custom_reporter);
     });
     
