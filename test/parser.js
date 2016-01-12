@@ -98,10 +98,10 @@ describe('parser', function () {
   
   describe('#parse()', function () {
     
-//    var parser;
+    //var parser;
     
     before(function(){
-//      parser = rewire('../lib/parser');
+      //parser = rewire('../lib/parser');
     });
     
     it('should parse a tree of ATS nodes and return modified tree', function() {
