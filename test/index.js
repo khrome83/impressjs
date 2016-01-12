@@ -152,6 +152,41 @@ describe('impress', function () {
     
   });
   
+  describe('#addPlugin()', function() {
+    
+    beforeEach(function(){
+      impress.init(null, null, []); 
+    });
+    
+    it('should add single plugin specified as an argument to manifest', function() {
+      impress.addPlugin('use');
+      var plugins = impress.__get__('_plugins');
+      
+      plugins.should.include('use');
+      plugins.should.have.length.of(1);
+    });
+    
+    it('should add any plugins specified as arguments to manifest', function() {
+      impress.addPlugins('use', 'test');
+      var plugins = impress.__get__('_plugins');
+      
+      plugins.should.include('use');
+      plugins.should.include('test');
+      plugins.should.have.length.of(2);        
+    });
+    
+    it('should add all plugins within array to manifest', function() {
+      impress.addPlugins(['use', 'test', 'list']);
+      var plugins = impress.__get__('_plugins');
+      
+      plugins.should.include('use');
+      plugins.should.include('test');
+      plugins.should.include('list');
+      plugins.should.have.length.of(3);      
+    });
+         
+  });
+  
   describe('#compile()', function () {
     var html;
     
