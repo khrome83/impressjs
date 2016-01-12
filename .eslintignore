@@ -2,3 +2,4 @@
 
 # Ignore files create by Istanbul
 coverage/
+wallaby.js
