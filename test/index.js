@@ -188,17 +188,24 @@ describe('impress', function () {
   });
   
   describe('#compile()', function () {
-    var html;
     
     before(function(){
-      html = '<ul class="fruit" id="fruit"><li class="apple" data-active="true">Apple</li><li class="pear">Pear</li><li class="blueberry">Blueberry</li></ul>';
       impress.init();
     });
     
     it('should return html string', function() {
+      var html = '<ul class="fruit" id="fruit"><li class="apple" data-active="true">Apple</li><li class="pear">Pear</li><li class="blueberry">Blueberry</li></ul>';
       var output = impress.compile(html);
       
       output.should.be.a('string');
+    });
+
+    it('should replace the text with attribute value using text action', function() {
+      var html = '<ul class="fruit" id="fruit"><li class="apple" data-imp-text="Apple"></li><li class="pear" data-imp-text="Pear"></li></ul>'; 
+      var output = impress.compile(html);
+      
+      output.should.be.a('string');
+      output.should.equal('<ul class="fruit" id="fruit"><li class="apple" data-imp-text="Apple">Apple</li><li class="pear" data-imp-text="Pear">Pear</li></ul>'); 
     });
 
 /*
