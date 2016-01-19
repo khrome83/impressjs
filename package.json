@@ -8,7 +8,12 @@
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive -G -u bdd -c -R spec",
     "testwin": "eslint . && mocha --recursive",
     "debug": "mocha --recursive --debug-brk",
-    "docs": "documentation ./lib/index.js -f md -o API.md"
+    "docs": "npm run docs-api && npm run docs-use && npm run docs-text && npm run docs-test && npm run docs-list",
+    "docs-api": "documentation ./lib/index.js -f md -o docs/usage.md", 
+    "docs-use": "documentation ./lib/actions/use.js -f md -o docs/plugins/use.md",
+    "docs-text": "documentation ./lib/actions/text.js -f md -o docs/plugins/text.md",
+    "docs-test": "documentation ./lib/actions/test.js -f md -o docs/plugins/test.md",
+    "docs-list": "documentation ./lib/actions/list.js -f md -o docs/plugins/list.md"
   },
   "repository": {
     "type": "git",
