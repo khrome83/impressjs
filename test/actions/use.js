@@ -164,12 +164,12 @@ describe('actions/use', function () {
     });
   });
 
-  describe('#getProperties()', function () {
+  describe('#getProperties', function () {
 
     var props;
     
     before(function() {
-      props = use.getProperties();
+      props = use.getProperties;
     });
 
     it('should return props object', function () {

@@ -89,12 +89,12 @@ describe('actions/text', function () {
 
   });
 
-  describe('#getProperties()', function () {
+  describe('#getProperties', function () {
 
     var props;
     
     before(function() {
-      props = text.getProperties();
+      props = text.getProperties;
     });
 
     it('should return props object', function () {

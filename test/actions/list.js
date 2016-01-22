@@ -30,12 +30,12 @@ describe('actions/list', function () {
 
   });
 
-  describe('#getProperties()', function () {
+  describe('#getProperties', function () {
 
     var props;
     
     before(function() {
-      props = list.getProperties();
+      props = list.getProperties;
     });
 
     it('should return props object', function () {

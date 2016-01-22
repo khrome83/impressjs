@@ -30,12 +30,12 @@ describe('actions/test', function () {
 
   });
 
-  describe('#getProperties()', function () {
+  describe('#getProperties', function () {
 
     var props;
     
     before(function() {
-      props = test.getProperties();
+      props = test.getProperties;
     });
 
     it('should return props object', function () {
